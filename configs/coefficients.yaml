@@ -1,0 +1,49 @@
+# Tuned coefficients and thresholds for the rule-based classifier.
+#
+# These values correspond to Table 1 of the manuscript and were obtained by
+# the iterative optimisation described in the "Rule-based algorithm" section.
+# Each entry multiplies the base weight for its class whenever the rule
+# in Table 1 fires. Question indices are 1-based (Q01-Q50).
+#
+# Class codes used as key prefixes: BPPV, MD, VM, PPPD, VEST, OH.
+
+# --- BPPV ---------------------------------------------------
+xBPPV_1: 28 
+xBPPV_2: 19 
+xBPPV_3: 22 
+xBPPV_4: 58 
+
+# --- MD  ---------------------------------------------------
+xMD_1: 80  
+xMD_2: 72  
+xMD_3: 99  
+xMD_4: 71   
+xMD_5: 48  
+
+# --- VM   ---------------------------------------------------
+xVM_1: 9   
+xVM_2: 53   
+xVM_3: 2    
+xVM_4: 3    
+xVM_5: 77   
+xVM_6: 94  
+
+# --- PPPD  ---------------------------------------------------
+xPPPD_1: 3  
+xPPPD_2: 2 
+xPPPD_3: 2   
+xPPPD_4: 38 
+xPPPD_5: 8   
+
+# --- VEST  ---------------------------------------------------
+xVEST_1: 2   
+xVEST_2: 23   
+xVEST_3: 90   
+xVEST_4: 44   
+xVEST_5: 31  
+xVEST_6: 16   
+xVEST_7: 2    
+
+# --- OH  ---------------------------------------------------
+xOH_1: 3   
+xOH_2: 5  

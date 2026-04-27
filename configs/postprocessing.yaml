@@ -1,0 +1,32 @@
+# Post-processing accept/reject rules applied AFTER the weighted-score
+# ranking. These refinements are described in the Discussion of the
+# manuscript. They are applied in a fixed order; see postprocessing.py
+# for the control flow.
+
+rejections:
+  PPPD_reject_1: true   # >=4 "No" among Q14-Q20 -> clear PPPD
+  MD_reject_1:   true   # Q03!=2 AND Q04!=1 AND Q20-22 all "No" -> clear MD
+  MD_reject_2:   true   # App_Dx2==MD with only one "Yes" among Q20-22 -> clear
+  VM_reject_1:   true   # App_Dx1==OH AND App_Dx2==VM -> clear VM
+  VM_reject_3:   true   # <3 "Yes" among Q25,27-29,32,33,35-38 -> clear VM
+  VEST_reject_1: true   # Q14=="No" AND Q15=="No" -> clear VEST
+  OH_reject_1:   true   # Q45,Q47,Q48 all "Yes" -> clear OH (paired with accept_3)
+
+# Shift step: after rejections, if Dx1 is empty but Dx2 is not, promote Dx2
+# into the Dx1 slot. This keeps the "top-two" output well-formed.
+promote_empty_dx1: true
+
+# Acceptance rules (applied after rejections and promotion). An "accept"
+# inserts the class into the Dx1/Dx2 slots if it is not already present.
+acceptances:
+  VM_accept_2:   true   # >=3 "Yes" among Q35,Q37,Q38,Q28,Q32 -> insert VM
+  VEST_accept_1: true   # (Q05==1 OR Q05==2) AND Q04!=3 -> insert VEST
+  PPPD_accept_1: true   # Q02==2 AND Q15-Q18 all "Yes" -> insert PPPD
+  OH_accept_3:   true   # Q45,Q47,Q48 "Yes" AND Q05!=3 AND Q04==1 -> insert OH
+  BPPV_accept_1: true   # >=2 "Yes" among Q05==1,Q23,Q24 -> insert BPPV (at top)
+
+# Vascular-vertigo safety screen (equation 1 of the paper). The screen
+# fires when >= `threshold` of the listed questions are answered "Yes".
+vascular_screen:
+  questions: [Q06, Q07, Q08, Q13]
+  threshold: 2
