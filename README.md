@@ -4,7 +4,7 @@
 
 The response data analysed in the publication is governed by the
 Institutional Review Board of Seoul National University Hospital
-(IRB No. 2206-008-1328) and **cannot be redistributed**. It is available
+(IRB No. 2206-008-1328) and cannot be redistributed. It is available
 from the corresponding authors on reasonable request, subject to a data
 transfer agreement and the terms of the IRB protocol.
 
